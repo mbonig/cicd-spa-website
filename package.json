@@ -1,0 +1,91 @@
+{
+  "name": "cicd_spa_website",
+  "description": "A CDK construct which pulls code from a source repository, builds it, then deploys to an S3 bucket (with CloudFront if a certificate is required)",
+  "version": "0.1.0",
+  "main": "lib/cicd_spa_website.js",
+  "types": "lib/cicd_spa_website.d.ts",
+  "scripts": {
+    "build": "jsii",
+    "build:watch": "jsii -w",
+    "package": "jsii-pacmak",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "jsii": {
+    "outdir": "dist",
+    "targets": {
+      "python": {
+        "distName": "mbonig.cicd-spa-website",
+        "module": "mbonig.cicd-spa-website"
+      },
+      "java": {
+        "package": "com.mbonig.cicd-spa-website",
+        "maven": {
+          "groupId": "com.mbonig",
+          "artifactId": "cicd-spa-website"
+        }
+      },
+      "dotnet": {
+        "namespace": "MBonig.CicdSpaWebsite",
+        "packageId": "MBonig.CicdSpaWebsite"
+      }
+    }
+  },
+  "keywords": [
+    "cdk",
+    "spa",
+    "cicd"
+  ],
+  "repository": {
+    "url": "git@github.com:mbonig/cicd-spa-website.git",
+    "type": "git"
+  },
+  "author": {
+    "name": "Matthew Bonig",
+    "email": "matthew.bonig@gmail.com",
+    "url": "https://matthewbonig.com"
+  },
+  "awscdkio": {
+    "twitter": "mattbonig"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@aws-cdk/assert": "^1.26.0",
+    "@types/jest": "^24.0.22",
+    "@types/node": "10.17.5",
+    "aws-cdk": "^1.26.0",
+    "jest": "^24.9.0",
+    "jsii": "^1.0.0",
+    "jsii-pacmak": "^1.0.0",
+    "ts-jest": "^24.1.0",
+    "ts-node": "^8.1.0",
+    "typescript": "~3.7.2"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-certificatemanager": "^1.26.0",
+    "@aws-cdk/aws-cloudfront": "^1.26.0",
+    "@aws-cdk/aws-codebuild": "^1.26.0",
+    "@aws-cdk/aws-codepipeline": "^1.26.0",
+    "@aws-cdk/aws-codepipeline-actions": "^1.26.0",
+    "@aws-cdk/aws-iam": "^1.26.0",
+    "@aws-cdk/aws-lambda": "^1.26.0",
+    "@aws-cdk/aws-route53": "^1.26.0",
+    "@aws-cdk/aws-route53-targets": "^1.26.0",
+    "@aws-cdk/aws-s3": "^1.26.0",
+    "@aws-cdk/core": "^1.26.0"
+  },
+  "peerDependencies": {
+    "@aws-cdk/aws-certificatemanager": "^1.26.0",
+    "@aws-cdk/aws-cloudfront": "^1.26.0",
+    "@aws-cdk/aws-codebuild": "^1.26.0",
+    "@aws-cdk/aws-codepipeline": "^1.26.0",
+    "@aws-cdk/aws-codepipeline-actions": "^1.26.0",
+    "@aws-cdk/aws-iam": "^1.26.0",
+    "@aws-cdk/aws-lambda": "^1.26.0",
+    "@aws-cdk/aws-route53": "^1.26.0",
+    "@aws-cdk/aws-route53-targets": "^1.26.0",
+    "@aws-cdk/aws-s3": "^1.26.0",
+    "@aws-cdk/core": "^1.26.0"
+  }
+}
