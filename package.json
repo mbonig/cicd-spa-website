@@ -19,13 +19,6 @@
         "distName": "mbonig.cicd-spa-website",
         "module": "mbonig.cicd-spa-website"
       },
-      "java": {
-        "package": "com.mbonig.cicd-spa-website",
-        "maven": {
-          "groupId": "com.mbonig",
-          "artifactId": "cicd-spa-website"
-        }
-      },
       "dotnet": {
         "namespace": "MBonig.CicdSpaWebsite",
         "packageId": "MBonig.CicdSpaWebsite"
