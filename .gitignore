@@ -6,3 +6,5 @@ bin/*.js
 test/*.js
 cdk.context.json
 tsconfig.json
+dist
+.jsii

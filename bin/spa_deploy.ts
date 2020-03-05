@@ -5,7 +5,7 @@ import {SecretValue, Stack} from '@aws-cdk/core';
 import {CicdSpaWebsite} from '../lib/cicd_spa_website';
 
 const app = new cdk.App();
-const stack = new Stack(app, 'fld-public-site-cicd', {
+const stack = new Stack(app, 'public-site-cicd', {
     env: {account: 'asdf', region: 'us-east-1'},
 });
 
