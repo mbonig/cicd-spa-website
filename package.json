@@ -31,7 +31,7 @@
     "cicd"
   ],
   "repository": {
-    "url": "git@github.com:mbonig/cicd-spa-website.git",
+    "url": "https://github.com/mbonig/cicd-spa-website",
     "type": "git"
   },
   "author": {
