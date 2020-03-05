@@ -1,6 +1,6 @@
 {
   "name": "cicd_spa_website",
-  "description": "A CDK construct which pulls code from a source repository, builds it, then deploys to an S3 bucket (with CloudFront if a certificate is required)",
+  "description": "A CDK construct which creates a pipeline that pulls code from a source repository, builds it, then deploys to an S3 bucket (with CloudFront if a certificate is required)",
   "version": "0.1.0",
   "main": "lib/cicd_spa_website.js",
   "types": "lib/cicd_spa_website.d.ts",
