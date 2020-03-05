@@ -25,31 +25,7 @@ export interface CicdSpaWebsiteProps extends StackProps {
     /**
      * a limited schema version of GitHubSourceActionProps
      */
-    readonly githubSource: {
-        /**
-         * The GitHub account/user that owns the repo.
-         */
-        owner: string;
-        /**
-         * The name of the repo, without the username.
-         */
-        repo: string;
-        /**
-         * The branch to use.
-         *
-         * @default "master"
-         */
-        branch?: string;
-        /**
-         * A GitHub OAuth token to use for authentication.
-         *
-         * It is recommended to use a Secrets Manager `Secret` to obtain the token:
-         *
-         *   const oauth = cdk.SecretValue.secretsManager('my-github-token');
-         *   new GitHubSource(this, 'GitHubAction', { oauthToken: oauth, ... });
-         */
-        oauthToken: SecretValue;
-    }
+    readonly githubSource: ReducedGitHubSourceActionProps;
 
     readonly buildSpec?: any | string;
     /**
@@ -64,6 +40,33 @@ export interface CicdSpaWebsiteProps extends StackProps {
      */
     readonly hostedZone?: HostedZoneAttributes
 }
+
+export interface ReducedGitHubSourceActionProps {
+    /**
+     * The GitHub account/user that owns the repo.
+     */
+    readonly owner: string;
+    /**
+     * The name of the repo, without the username.
+     */
+    readonly repo: string;
+    /**
+     * The branch to use.
+     *
+     * @default "master"
+     */
+    readonly branch?: string;
+    /**
+     * A GitHub OAuth token to use for authentication.
+     *
+     * It is recommended to use a Secrets Manager `Secret` to obtain the token:
+     *
+     *   const oauth = cdk.SecretValue.secretsManager('my-github-token');
+     *   new GitHubSource(this, 'GitHubAction', { oauthToken: oauth, ... });
+     */
+    readonly oauthToken: SecretValue;
+}
+
 
 let standardBuildSpec = {
     version: '0.2',
