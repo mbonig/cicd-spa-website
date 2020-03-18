@@ -27,7 +27,12 @@ export interface CicdSpaWebsiteProps {
      */
     readonly githubSource: ReducedGitHubSourceActionProps;
 
+    /**
+     * An optional buildspec to use. Either provide an object or a string. A string is interpreted as
+     * a file in the source code (e.g. buildspec-prod.yaml)
+     */
     readonly buildSpec?: any | string;
+    
     /**
      * A certificate to use, or true if you'd like a DnsValidatedCertificate to be generated
      * If provided, also requires the hostedZone to be provided.
