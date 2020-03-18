@@ -1,4 +1,4 @@
-import {Construct, SecretValue, StackProps} from '@aws-cdk/core';
+import {Construct, SecretValue} from '@aws-cdk/core';
 import {Artifact, Pipeline} from "@aws-cdk/aws-codepipeline";
 import {BlockPublicAccess, Bucket, BucketEncryption} from "@aws-cdk/aws-s3";
 import {HostedZone, HostedZoneAttributes, RecordSet, RecordTarget, RecordType} from "@aws-cdk/aws-route53";
@@ -15,7 +15,7 @@ import {Code, Function, Runtime} from '@aws-cdk/aws-lambda';
 import {DnsValidatedCertificate, ICertificate} from "@aws-cdk/aws-certificatemanager";
 import {BucketWebsiteTarget, CloudFrontTarget} from "@aws-cdk/aws-route53-targets";
 
-export interface CicdSpaWebsiteProps extends StackProps {
+export interface CicdSpaWebsiteProps {
     /**
      * The url for the website.
      * e.g. www.fourlittledogs.com
@@ -31,12 +31,14 @@ export interface CicdSpaWebsiteProps extends StackProps {
     /**
      * A certificate to use, or true if you'd like a DnsValidatedCertificate to be generated
      * If provided, also requires the hostedZone to be provided.
-     * If you do not provide a certificate or set this to false, then CloudFormation and the related DNS records will not be created, and the website will be hosted using S3
+     * If you do not provide a certificate or set this to false, then CloudFormation and the related DNS records will
+     * not be created, and the website will be hosted using S3
      */
     readonly certificate?: ICertificate | boolean;
 
     /**
-     * The HostedZoneAttributes to use for a HostedZone lookup. This is required if you want the DNS entry and are using Certificate generation (instead of providing your own)
+     * The HostedZoneAttributes to use for a HostedZone lookup. This is required if you want the DNS entry and are using
+     * Certificate generation (instead of providing your own)
      */
     readonly hostedZone?: HostedZoneAttributes
 }
@@ -290,7 +292,6 @@ export class CicdSpaWebsite extends Construct {
 
             this.distribution = new CloudFrontWebDistribution(this, 'site-distribution', {
                 viewerCertificate: ViewerCertificate.fromAcmCertificate(certificate),
-
                 originConfigs: [
                     {
                         s3OriginSource: {
